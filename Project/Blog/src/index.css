@@ -3,24 +3,27 @@
 @tailwind utilities;
 
 :root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
+  /* Earth Tone 配色方案 */
+  --text: #5c4b37;
+  --text-h: #2d2418;
+  --bg: #faf8f5;
+  --border: #e6e0d6;
+  --code-bg: #f0ead8;
+  --accent: #8b6914;
+  --accent-bg: rgba(139, 105, 20, 0.1);
+  --accent-border: rgba(139, 105, 20, 0.5);
+  --social-bg: rgba(240, 234, 216, 0.5);
   --shadow:
     rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
 
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
+  /* 独特的字体选择 */
+  --sans: 'Inter', system-ui, 'Segoe UI', Roboto, Arial, sans-serif;
+  --heading: 'Playfair Display', Georgia, 'Times New Roman', serif;
   --mono: ui-monospace, Consolas, monospace;
 
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
+  /* 排版设置 */
+  font: 16px/160% var(--sans);
+  letter-spacing: 0.15px;
   color-scheme: light dark;
   color: var(--text);
   background: var(--bg);
@@ -29,22 +32,23 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
+  /* 响应式字体大小 */
   @media (max-width: 1024px) {
-    font-size: 16px;
+    font-size: 15px;
   }
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
+    --text: #d0c6b3;
+    --text-h: #f0ead8;
+    --bg: #1a1610;
+    --border: #3d3526;
+    --code-bg: #2d2418;
+    --accent: #c8a056;
+    --accent-bg: rgba(200, 160, 86, 0.15);
+    --accent-border: rgba(200, 160, 86, 0.5);
+    --social-bg: rgba(61, 53, 38, 0.5);
     --shadow:
       rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
   }
@@ -54,6 +58,7 @@
   }
 }
 
+/* 全局容器设置 */
 #root {
   width: 1126px;
   max-width: 100%;
@@ -68,37 +73,62 @@
 
 body {
   margin: 0;
+  /* 纹理背景效果 */
+  background-image:
+    radial-gradient(rgba(139, 105, 20, 0.03) 1px, transparent 1px);
+  background-size: 20px 20px;
+  background-attachment: fixed;
 }
 
+/* 标题样式 */
 h1,
-h2 {
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--heading);
-  font-weight: 500;
+  font-weight: 600;
   color: var(--text-h);
+  line-height: 1.2;
 }
 
 h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
+  font-size: 48px;
+  letter-spacing: -1.5px;
   margin: 32px 0;
   @media (max-width: 1024px) {
     font-size: 36px;
     margin: 20px 0;
   }
 }
+
 h2 {
-  font-size: 24px;
+  font-size: 32px;
   line-height: 118%;
-  letter-spacing: -0.24px;
+  letter-spacing: -0.5px;
+  margin: 0 0 8px;
+  @media (max-width: 1024px) {
+    font-size: 24px;
+  }
+}
+
+h3 {
+  font-size: 24px;
+  line-height: 120%;
+  letter-spacing: -0.25px;
   margin: 0 0 8px;
   @media (max-width: 1024px) {
     font-size: 20px;
   }
 }
+
+/* 段落样式 */
 p {
   margin: 0;
 }
 
+/* 代码样式 */
 code,
 .counter {
   font-family: var(--mono);
@@ -108,8 +138,123 @@ code,
 }
 
 code {
-  font-size: 15px;
+  font-size: 14px;
   line-height: 135%;
   padding: 4px 8px;
   background: var(--code-bg);
 }
+
+/* 自定义滚动条 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--code-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-border);
+}
+
+/* 动画效果 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(139, 105, 20, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(139, 105, 20, 0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.pulse-glow {
+  animation: pulse-glow 2s infinite;
+}
+
+/* 卡片悬停效果 */
+.card-hover {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover:hover {
+  transform: translateY(-10px) rotateX(3deg);
+  box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.3);
+}
+
+/* 背景网格效果 */
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(139, 105, 20, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(139, 105, 20, 0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* 玻璃态效果 */
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.dark .glass {
+  background: rgba(26, 22, 16, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(61, 53, 38, 0.3);
+}
+
+/* 装饰线条 */
+.decorative-line {
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), transparent);
+  margin: 20px 0;
+}
+

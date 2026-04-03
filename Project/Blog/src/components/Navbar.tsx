@@ -60,6 +60,13 @@ const Navbar: React.FC = () => {
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-amber-700 dark:bg-amber-500 transition-all duration-300 group-hover/link:w-full" />
             </Link>
             <Link
+              to="/resources"
+              className="text-gray-700 dark:text-gray-300 hover:text-amber-700 dark:hover:text-amber-500 transition-colors duration-300 relative group/link"
+            >
+              资源
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-amber-700 dark:bg-amber-500 transition-all duration-300 group-hover/link:w-full" />
+            </Link>
+            <Link
               to="/about"
               className="text-gray-700 dark:text-gray-300 hover:text-amber-700 dark:hover:text-amber-500 transition-colors duration-300 relative group/link"
             >
@@ -132,6 +139,13 @@ const Navbar: React.FC = () => {
               onClick={() => setIsMenuOpen(false)}
             >
               标签
+            </Link>
+            <Link
+              to="/resources"
+              className="block px-3 py-3 rounded-lg text-base font-medium text-gray-700 dark:text-gray-300 hover:text-amber-700 dark:hover:text-amber-500 transition-colors duration-300"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              资源
             </Link>
             <Link
               to="/about"

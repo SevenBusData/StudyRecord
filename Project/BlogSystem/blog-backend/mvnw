@@ -1,0 +1,5 @@
+#!/bin/bash
+JAVA_HOME="/usr/bin/java"
+MAVEN_HOME="/usr/local/maven"
+MAVEN_OPTS="-Xmx512m -XX:MaxPermSize=128m"
+exec "$MAVEN_HOME/bin/mvn" "$@"
